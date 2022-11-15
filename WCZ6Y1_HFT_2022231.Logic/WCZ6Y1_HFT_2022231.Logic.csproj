@@ -4,6 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.17" />
+	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WCZ6Y1_HFT_2022231.Models\WCZ6Y1_HFT_2022231.Models.csproj" />
     <ProjectReference Include="..\WCZ6Y1_HFT_2022231.Repository\WCZ6Y1_HFT_2022231.Repository.csproj" />
