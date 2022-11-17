@@ -12,6 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{2217315B-D18E-44F5-8667-B69657BD0996}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{E9FB0508-5490-4BB7-906A-D0A975DF78B8}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCZ6Y1_HFT_2022231.Logic", "WCZ6Y1_HFT_2022231.Logic\WCZ6Y1_HFT_2022231.Logic.csproj", "{87562CEC-0B0D-40FA-905F-88E6C9964668}"
 EndProject
