@@ -96,10 +96,7 @@ namespace WCZ6Y1_HFT_2022231.Logic
             foreach (var thisbookId in source)
             {
                 Book _old = ReadBook(thisbookId);
-                //Movie _new = _old;
-                //_new.MovieId = 420;
-                //_new.Rating = _new.Rating + 1.0;
-                //UpdateMovie(thismovieId, _new);
+               
                 double magic = (double)_old.Rating + 1;
                 list.Add(new ComparedBooks(_old.Title, _old.Rating, magic, _old.ReleaseYear));
             }
