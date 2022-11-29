@@ -54,6 +54,26 @@ namespace WCZ6Y1_HFT_2022231.Endpoint.Controllers
         {
             return sl.GetAllActionBooksWithMoreRatingThan2();
         }
+        [HttpGet ("{name}")]
+        public IEnumerable<string> GetBooksByAuthor(string name) // ez az új
+        {
+            return sl.GetBooksByAuthor(name);
+        }
+        [HttpGet("{startDate} {finalDate}")]
+        public IEnumerable<string> GetBookByPublisher(int startDate, int finalDate)
+        {
+            return sl.GetBookByPublisher(startDate, finalDate);
+        }
+        [HttpGet]
+        public IEnumerable<string> BookCountByAuthors()
+        {
+            return sl.BookCountByAuthors();
+        }
+        [HttpGet("{name}")]
+        public IEnumerable<string> WhichPublisherPublishedTheAuthorsBook(string name)
+        {
+            return sl.WhichPublisherPublishedTheAuthorsBook(name);
+        }
 
     }
 }

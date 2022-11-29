@@ -173,5 +173,29 @@ namespace WCZ6Y1_HFT_2022231.Test
             string s = isl.ListPublisherByPrintingCapacity().First();
             Assert.That(s, Is.EqualTo("{ Name = WestEnd Book, Capacity = 100 }"));
         }
+        [Test]
+        public void GetBooksByAuthorTest()
+        {
+            string s = isl.GetBooksByAuthor("Kovács Máté").First();
+            Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, Title = Tüskevár }"));
+        }
+        [Test]
+        public void GetBookByPublisherTest()
+        {
+            string s = isl.GetBookByPublisher(1999,2003).First();
+            Assert.That(s,Is.EqualTo("{ BookName = Koromfeketécske, ReleaseYear = 2000, PublisherName = Aréna Book }"));
+        }
+        [Test]
+        public void BookCountByAuthorsTest()
+        {
+            string s = isl.BookCountByAuthors().First();
+            Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, BookCount = 2 }"));
+        }
+        [Test]
+        public void WhichPublisherPublishedTheAuthorsBookTest()
+        {
+            string s = isl.WhichPublisherPublishedTheAuthorsBook("Kovács Máté").First();
+            Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, BookTitle = Tüskevár, PublisherName = Aba könykiadó }"));
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace WCZ6Y1_HFT_2022231.Models
     {
         public Publisher()
         {
-            Books = new HashSet<Book>();
+            Books3 = new HashSet<Book>();
             PublisherName = string.Empty;
         }
 
@@ -35,14 +35,15 @@ namespace WCZ6Y1_HFT_2022231.Models
 
         [Required]
         public int PublishingPrice { get; set; }
+        public int Bookid { get; set; }
 
 
-
-        public virtual ICollection<Book> Books { get; }
+        [NotMapped]
+        public virtual ICollection<Book> Books3 { get; }
 
         public override string ToString()
         {
-            return $"CinemaId: {PublisherId}\nCinema name: {PublisherName}\nAddress: {Address}\nNumber of contacts: {NumberOfContacts}\nPrinting capacity: {PrintingCapacity}\nPublishing price: {PublishingPrice}\n";
+            return $"PublisherId: {PublisherId}\nPublisher name: {PublisherName}\nAddress: {Address}\nNumber of contacts: {NumberOfContacts}\nPrinting capacity: {PrintingCapacity}\nPublishing price: {PublishingPrice}\nBookid: {Bookid}";
         }
     }
 }

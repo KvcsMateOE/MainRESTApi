@@ -12,6 +12,7 @@ namespace WCZ6Y1_HFT_2022231.Models
         public Book Book { get; set; }
 
         public int AuthorId { get; set; }
+        
         public Author Author { get; set; }
     }
 }

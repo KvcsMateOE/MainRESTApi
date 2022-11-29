@@ -10,7 +10,7 @@ namespace WCZ6Y1_HFT_2022231.Models
       
             public Author()
             {
-                Books = new HashSet<Book>();
+                Books2 = new HashSet<Book>();
                 Name = string.Empty;
             }
 
@@ -30,12 +30,12 @@ namespace WCZ6Y1_HFT_2022231.Models
             [Required]
             [Range(0, 1)]
             public int Gender { get; set; }
-
-            public virtual ICollection<Book> Books { get; }
+        [NotMapped]
+        public virtual ICollection<Book> Books2 { get; }
 
             public override string ToString()
             {
-                return $"ActorId: {AuthorId}\nName: {Name}\nBirth year: {BirthYear}\nHome country: {HomeCountry}\nGender: {Gender}\n";
+                return $"AuthorId: {AuthorId}\nName: {Name}\nBirth year: {BirthYear}\nHome country: {HomeCountry}\nGender: {Gender}\n";
             }
         }
     }

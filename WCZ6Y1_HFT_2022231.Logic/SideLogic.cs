@@ -58,6 +58,7 @@ namespace WCZ6Y1_HFT_2022231.Logic
             return result;
             ;
         }
+       
 
 
 
@@ -125,5 +126,79 @@ namespace WCZ6Y1_HFT_2022231.Logic
 
 
         }
+        //public IEnumerable<string> GetBooksByAuthor(string name)
+        //{
+        //    var res = from mvs in ctx.Books
+        //              join g in ctx.Authors on mvs.Authorid equals g.AuthorId
+        //              //where mvs.Authorid == g.AuthorId
+        //              where g.Name == name
+        //              select new
+        //              {
+        //                  Name = g.Name,
+        //                  AuthorId = g.AuthorId,
+        //                  BookId = mvs.BookId,
+        //                  BookName = mvs.Title
+        //              }.ToString();
+        //    return res;
+        //    ;
+        //}
+        PublisherDbContext ctx = new PublisherDbContext();
+        //  public IEnumerable<string> BooksBetween
+        public IEnumerable<string> GetBooksByAuthor(string name)
+        {
+            var res = from mvs in ctx.Books
+                      where mvs.Author.Name==name
+                      select new
+                      {
+                          AuthorName = mvs.Author.Name,
+                          Title = mvs.Title
+                      }.ToString();
+                      
+            return res;
+            ;
+        }
+        public IEnumerable<string> GetBookByPublisher(int startDate, int finalDate)
+        {
+            var res = from mvs in ctx.Books
+                      where mvs.ReleaseYear >= startDate && mvs.ReleaseYear <= finalDate
+                      select new
+                      {
+                          BookName= mvs.Title,
+                          ReleaseYear=mvs.ReleaseYear,
+                          PublisherName=mvs.Publisher.PublisherName
+                      }.ToString();
+            return res;
+        }
+        public IEnumerable<string> BookCountByAuthors()
+        {
+            var res = from mvs in ctx.Books
+                      group mvs by mvs.Author.Name into g
+                      orderby g.Count() descending
+                      select new
+                      {
+                          AuthorName = g.Key,
+                          BookCount = g.Count(),
+                          
+
+                      }.ToString();
+
+            return res;
+        }
+        public IEnumerable<string>WhichPublisherPublishedTheAuthorsBook(string name)
+        {
+            var res = from mvs in ctx.Books
+                      where mvs.Author.Name == name
+                      select new
+                      {
+                          AuthorName = mvs.Author.Name,
+                          BookTitle = mvs.Title,
+                          PublisherName = mvs.Publisher.PublisherName
+                      }.ToString();
+
+                return res;
+        }
+
+
+
     }
 }
