@@ -197,7 +197,26 @@ namespace WCZ6Y1_HFT_2022231.Logic
 
                 return res;
         }
+        public IEnumerable<string> OlderThan30AuthorAndTheirBooks()
+        {
+          
+          
+           
+            int t = DateTime.Now.Year;
+            var res = from mvs in ctx.Books
+                      where (t - mvs.Author.BirthYear) > 30 && mvs.Rating > 2.5 && mvs.Publisher.PublishingPrice > 200
+                      orderby mvs.Author.AuthorId descending
+                      select new
+                      {
+                          AuthorName = mvs.Author.Name,
+                          AuthorID = mvs.Author.AuthorId,
+                          BookTitle = mvs.Title,
+                          BookRating = mvs.Rating,
+                          PublisherName = mvs.Publisher.PublisherName
 
+                      }.ToString();
+            return res;
+        }
 
 
     }

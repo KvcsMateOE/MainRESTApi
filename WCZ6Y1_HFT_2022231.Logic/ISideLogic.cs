@@ -18,6 +18,7 @@ namespace WCZ6Y1_HFT_2022231.Logic
         IEnumerable<string> GetBookByPublisher(int startDate, int finalDate);
         IEnumerable<string> BookCountByAuthors();
         IEnumerable<string> WhichPublisherPublishedTheAuthorsBook(string name);
+        IEnumerable<string> OlderThan30AuthorAndTheirBooks();
     }
 }
 

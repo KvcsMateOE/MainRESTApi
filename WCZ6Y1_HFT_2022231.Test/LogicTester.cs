@@ -197,5 +197,16 @@ namespace WCZ6Y1_HFT_2022231.Test
             string s = isl.WhichPublisherPublishedTheAuthorsBook("Kovács Máté").First();
             Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, BookTitle = Tüskevár, PublisherName = Aba könykiadó }"));
         }
+        [Test]
+        public void WhichPublisherPublishedTheAuthorsBookTest2()
+        {
+            Assert.That(() => isl.WhichPublisherPublishedTheAuthorsBook("Kovács Máté"), Throws.Nothing);
+        }
+        [Test]
+        public void OlderThan30AuthorAndTheirBooks()
+        {
+            string s = isl.OlderThan30AuthorAndTheirBooks().First();
+            Assert.That(s, Is.EqualTo("{ AuthorName = Xiam-ping, AuthorID = 9, BookTitle = Transformers, BookRating = 4,5, PublisherName = WestEnd Book }"));
+        }
     }
 }

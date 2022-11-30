@@ -74,6 +74,10 @@ namespace WCZ6Y1_HFT_2022231.Endpoint.Controllers
         {
             return sl.WhichPublisherPublishedTheAuthorsBook(name);
         }
+        public IEnumerable<string> OlderThan30AuthorAndTheirBooks()
+        {
+            return sl.OlderThan30AuthorAndTheirBooks();
+        }
 
     }
 }

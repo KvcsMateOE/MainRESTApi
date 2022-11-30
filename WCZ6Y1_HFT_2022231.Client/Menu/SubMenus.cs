@@ -77,6 +77,7 @@ namespace WCZ6Y1_HFT_2022231.Client.Menu
                 .Add("Books by publisher between time interval (Enter 2 year)", () =>MenuFunctions.PrintSideResult("GetBookByPublisher"))
                 .Add("Book counter by author", () => MenuFunctions.PrintSideResult("BookCountByAuthors"))
                 .Add("The author's book published by these publisher: (Enter author name)", () => MenuFunctions.PrintSideResult("WhichPublisherPublishedTheAuthorsBook"))
+                .Add("The author's books who older than 30 years." , () => MenuFunctions.PrintSideResult("OlderThan30AuthorAndTheirBooks"))
                 .Add("Back", ConsoleMenu.Close)
                 .Configure(config =>
                 {
