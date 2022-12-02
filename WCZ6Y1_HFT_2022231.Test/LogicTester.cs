@@ -29,30 +29,30 @@ namespace WCZ6Y1_HFT_2022231.Test
 
             var testAuthors = new List<Author>()
             {
-                new Author() { AuthorId = 1, BirthYear = 1986, Gender = 0, HomeCountry = "Hungary", Name = "Nagy Elemér" },
-            new Author() { AuthorId = 2, BirthYear = 1940, Gender = 1, HomeCountry = "Germany", Name = "Hans Landa" },
-            new Author() { AuthorId = 3, BirthYear = 1944, Gender = 1, HomeCountry = "Argentina", Name = "Joaquin Messi" },
-            new Author() { AuthorId = 4, BirthYear = 1990, Gender = 0, HomeCountry = "France", Name = "Zinedine Zadan" },
-            new Author() { AuthorId = 5, BirthYear = 1880, Gender = 0, HomeCountry = "Denmark", Name = "Christian Meriksen" },
-            new Author() { AuthorId = 6, BirthYear = 1455, Gender = 0, HomeCountry = "Hungary", Name = "Kiss Elemér" },
-            new Author() { AuthorId = 7, BirthYear = 1912, Gender = 1, HomeCountry = "Hungary", Name = "Lapos Elemér" },
-            new Author() { AuthorId = 8, BirthYear = 1945, Gender = 0, HomeCountry = "Scotland", Name = "Scott McTominuy" },
-            new Author() { AuthorId = 9, BirthYear = 1968, Gender = 1, HomeCountry = "China", Name = "Xiam-ping" },
-            new Author() { AuthorId = 10, BirthYear = 2000, Gender = 0, HomeCountry = "Hungary", Name = "Kovács Máté" },
+           new Author() { AuthorId = 1, BirthYear = 1986, Gender = 0, HomeCountry = "Hungary", Name = "Nagy Elemér", AuthorPublisherID=1 },
+           new Author() { AuthorId = 2, BirthYear = 1940, Gender = 1, HomeCountry = "Germany", Name = "Hans Landa", AuthorPublisherID = 2 },
+           new Author() { AuthorId = 3, BirthYear = 1944, Gender = 1, HomeCountry = "Argentina", Name = "Joaquin Messi", AuthorPublisherID = 3 },
+           new Author() { AuthorId = 4, BirthYear = 1990, Gender = 0, HomeCountry = "France", Name = "Zinedine Zadan", AuthorPublisherID = 4 },
+           new Author() { AuthorId = 5, BirthYear = 1880, Gender = 0, HomeCountry = "Denmark", Name = "Christian Meriksen", AuthorPublisherID = 5 },
+          new  Author() { AuthorId = 6, BirthYear = 1455, Gender = 0, HomeCountry = "Hungary", Name = "Kiss Elemér", AuthorPublisherID = 6 },
+           new Author() { AuthorId = 7, BirthYear = 1912, Gender = 1, HomeCountry = "Hungary", Name = "Lapos Elemér", AuthorPublisherID = 7 },
+            new Author() { AuthorId = 8, BirthYear = 1945, Gender = 0, HomeCountry = "Scotland", Name = "Scott McTominuy", AuthorPublisherID = 8 },
+             new Author() { AuthorId = 9, BirthYear = 1968, Gender = 1, HomeCountry = "China", Name = "Xiam-ping", AuthorPublisherID = 9 },
+             new Author() { AuthorId = 10, BirthYear = 2000, Gender = 0, HomeCountry = "Hungary", Name = "Kovács Máté", AuthorPublisherID = 10 },
         }.AsQueryable();
 
             var testBooks = new List<Book>()
             {
-            new Book() { BookId = 1, Translator = "Károli Gáspár", Genre = "Action", Title = "Transformers", Rating = 4.5, ReleaseYear = 2007 },
-            new Book() { BookId = 2, Translator = "Nemes-Kiss Ágnes", Genre = "Fantasy", Title = "Koromfeketécske", Rating = 4.5, ReleaseYear = 2000 },
-            new Book() { BookId = 3, Translator = "Weöres Nándor", Genre = "Horror", Title = "Hári Pooter", Rating = 3.7, ReleaseYear = 2002 },
-            new Book() { BookId = 4, Translator = "None", Genre = "Action", Title = "Tüskevár", Rating = 5.0, ReleaseYear = 1960 },
-            new Book() { BookId = 5, Translator = "Kosztolányi Rezső", Genre = "Action", Title = "Trónok békéje", Rating = 4.55, ReleaseYear = 2009 },
-            new Book() { BookId = 6, Translator = "Hadházi László", Genre = "Thriller", Title = "Bosszútállók", Rating = 4.5, ReleaseYear = 2011 },
-            new Book() { BookId = 7, Translator = "Kőhalmi Zoltán", Genre = "Action", Title = "Legyek ura", Rating = 2.5, ReleaseYear = 2020 },
-            new Book() { BookId = 8, Translator = "Kovács András Péter", Genre = "Fantasy", Title = "Lecsó", Rating = 1.5, ReleaseYear = 2001 },
-            new Book() { BookId = 9, Translator = "Kiss Ádám", Genre = "Horror", Title = "Az", Rating = 0.5, ReleaseYear = 1943 },
-            new Book() { BookId = 10, Translator = "Ráskó Eszter", Genre = "Drama", Title = "Holnapután", Rating = 3.5, ReleaseYear = 1956 },
+            new Book() { BookId = 1, Translator = "Károli Gáspár", Genre = "Action", Title = "Transformers", Rating = 4.5, ReleaseYear = 2007, BookPublisherId=1/*, Authorid=9, Publisherid=1*/ },
+            new Book() { BookId = 2, Translator = "Nemes-Kiss Ágnes", Genre = "Fantasy", Title = "Koromfeketécske", Rating = 4.5, ReleaseYear = 2000, BookPublisherId = 2/*, Authorid=2, Publisherid=2*/ },
+            new Book() { BookId = 3, Translator = "Weöres Nándor", Genre = "Horror", Title = "Hári Pooter", Rating = 3.7, ReleaseYear = 2002, BookPublisherId = 3/*, Authorid=8, Publisherid =3*/ },
+           new Book() { BookId = 4, Translator = "None", Genre = "Action", Title = "Tüskevár", Rating = 5.0, ReleaseYear = 1960, BookPublisherId = 4 /*, Authorid=10, Publisherid =4*/},
+           new Book() { BookId = 5, Translator = "Kosztolányi Rezső", Genre = "Action", Title = "Trónok békéje", Rating = 4.55, ReleaseYear = 2009, BookPublisherId = 5/*, Authorid = 7, Publisherid =5*/ },
+           new Book() { BookId = 6, Translator = "Hadházi László", Genre = "Thriller", Title = "Bosszútállók", Rating = 4.5, ReleaseYear = 2011, BookPublisherId = 6/*, Authorid = 6, Publisherid =4*/ },
+           new Book() { BookId = 7, Translator = "Kőhalmi Zoltán", Genre = "Action", Title = "Legyek ura", Rating = 2.5, ReleaseYear = 2020, BookPublisherId = 7/*, Authorid = 5, Publisherid =6 */},
+            new Book() { BookId = 8, Translator = "None", Genre = "Fantasy", Title = "Lecsó", Rating = 1.5, ReleaseYear = 2001, BookPublisherId = 8/*, Authorid = 10, Publisherid =7*/ },
+            new Book() { BookId = 9, Translator = "Kiss Ádám", Genre = "Horror", Title = "Az", Rating = 0.5, ReleaseYear = 1943, BookPublisherId = 9/*, Authorid = 3, Publisherid =8*/ },
+            new Book() { BookId = 10, Translator = "Ráskó Eszter", Genre = "Drama", Title = "Holnapután", Rating = 3.5, ReleaseYear = 1956, BookPublisherId = 10/*, Authorid = 1, Publisherid =9*/ },
         }.AsQueryable();
 
             var testPublishers = new List<Publisher>()
@@ -126,25 +126,7 @@ namespace WCZ6Y1_HFT_2022231.Test
             mockAuthorRepo.Verify(m => m.ReadAll(), Times.Once);
         }
 
-        [Test]
-        public void IMBDTest()
-        {
-            int testyear = 2010;
-            var s = isl.HackIMDB(testyear);
-            int minYear = testyear;
-            foreach (var item in s)
-            {
-                if (item.YearOfTheBook < minYear)
-                {
-                    minYear = item.YearOfTheBook;//a
-                }
-            }
-            var vegleges = from oldest in s
-                           where oldest.YearOfTheBook.Equals(minYear)
-                           select oldest;
-            ComparedBooks endend = vegleges.First();
-            Assert.That(endend.ToString(), Is.EqualTo(new ComparedBooks("Az", 0.5, 1.5, 1943).ToString()));
-        }
+      
 
         [Test]
         public void GetAllAuthorsByCountryTest()
@@ -153,31 +135,16 @@ namespace WCZ6Y1_HFT_2022231.Test
             Assert.That(s, Is.EqualTo("{ Name = Nagy Elemér, Country = Hungary }"));
         }
 
-        [Test]
-        public void GetAllOldBooksTest()
-        {
-            int s = isl.GetAllOldBooks(2000).First();
-            Assert.That(s, Is.EqualTo(2));
-        }
+      
 
-        [Test]
-        public void GetLastCheapestPublishersTest()
-        {
-            string s = isl.GetLastCheapestPublisher().First();
-            Assert.That(s, Is.EqualTo("WestEnd Book"));
-        }
+        
 
-        [Test]
-        public void ListPublisherByPrintingCapacityTest()
-        {
-            string s = isl.ListPublisherByPrintingCapacity().First();
-            Assert.That(s, Is.EqualTo("{ Name = WestEnd Book, Capacity = 100 }"));
-        }
+       
         [Test]
         public void GetBooksByAuthorTest()
         {
             string s = isl.GetBooksByAuthor("Kovács Máté").First();
-            Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, Title = Tüskevár }"));
+            Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, Title = Holnapután }"));
         }
         [Test]
         public void GetBookByPublisherTest()
@@ -185,17 +152,12 @@ namespace WCZ6Y1_HFT_2022231.Test
             string s = isl.GetBookByPublisher(1999,2003).First();
             Assert.That(s,Is.EqualTo("{ BookName = Koromfeketécske, ReleaseYear = 2000, PublisherName = Aréna Book }"));
         }
-        [Test]
-        public void BookCountByAuthorsTest()
-        {
-            string s = isl.BookCountByAuthors().First();
-            Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, BookCount = 2 }"));
-        }
+      
         [Test]
         public void WhichPublisherPublishedTheAuthorsBookTest()
         {
-            string s = isl.WhichPublisherPublishedTheAuthorsBook("Kovács Máté").First();
-            Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, BookTitle = Tüskevár, PublisherName = Aba könykiadó }"));
+            var actual = isl.WhichPublisherPublishedTheAuthorsBook("Kerekecskegombocska").ToList().Count();
+            Assert.AreEqual(actual, 0);
         }
         [Test]
         public void WhichPublisherPublishedTheAuthorsBookTest2()
@@ -203,10 +165,10 @@ namespace WCZ6Y1_HFT_2022231.Test
             Assert.That(() => isl.WhichPublisherPublishedTheAuthorsBook("Kovács Máté"), Throws.Nothing);
         }
         [Test]
-        public void OlderThan30AuthorAndTheirBooks()
+        public void OlderThan100AuthorAndTheirBooks()
         {
-            string s = isl.OlderThan30AuthorAndTheirBooks().First();
-            Assert.That(s, Is.EqualTo("{ AuthorName = Xiam-ping, AuthorID = 9, BookTitle = Transformers, BookRating = 4,5, PublisherName = WestEnd Book }"));
+            string s = isl.OlderThan100AuthorAndTheirBooks().First();
+            Assert.That(s, Is.EqualTo("{ AuthorName = Christian Meriksen, Birthyear = 1880, BookTitle = Trónok békéje, PublisherName = Líra }"));
         }
     }
 }

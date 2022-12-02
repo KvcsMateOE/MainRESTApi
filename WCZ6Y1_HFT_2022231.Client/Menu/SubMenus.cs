@@ -67,17 +67,17 @@ namespace WCZ6Y1_HFT_2022231.Client.Menu
         public static ConsoleMenu SetupQuerySub()
         {
             var QuerySub = new ConsoleMenu(new string[] { "null" }, 1)
-                .Add("Show Capacity", () => MenuFunctions.PrintSideResult("ListPublisherByPrintingCapacity"))
-                .Add("Get All Authors By Country (Enter country)", () => MenuFunctions.PrintSideResult("GetAllAuthorsByCountry"))
-                .Add("Get All Old Books (Enter year)", () => MenuFunctions.PrintSideResult("GetAllOldBooks"))
-                .Add("Hack IMDB (Enter year)", () => MenuFunctions.PrintSideResult("HackIMDB"))
-                .Add("Get Last Cheapest Publishers", () => MenuFunctions.PrintSideResult("GetLastCheapestPublishers"))
+                //   .Add("Show Capacity", () => MenuFunctions.PrintSideResult("ListPublisherByPrintingCapacity"))
+                .Add("Get All Authors By Country (Enter country ie.: Hungary)", () => MenuFunctions.PrintSideResult("GetAllAuthorsByCountry"))
+                //  .Add("Get All Old Books (Enter year)", () => MenuFunctions.PrintSideResult("GetAllOldBooks"))
+                //.Add("Hack IMDB (Enter year)", () => MenuFunctions.PrintSideResult("HackIMDB"))
+                //.Add("Get Last Cheapest Publishers", () => MenuFunctions.PrintSideResult("GetLastCheapestPublishers"))
                 .Add("JoinedTabledPublisherQuery", () => MenuFunctions.PrintSideResult("GetAllActionBooksWithMoreRatingThan2"))
-                .Add("Books by author (Enter author name)",() => MenuFunctions.PrintSideResult("GetBooksByAuthor")) // itt az újítás
-                .Add("Books by publisher between time interval (Enter 2 year)", () =>MenuFunctions.PrintSideResult("GetBookByPublisher"))
-                .Add("Book counter by author", () => MenuFunctions.PrintSideResult("BookCountByAuthors"))
-                .Add("The author's book published by these publisher: (Enter author name)", () => MenuFunctions.PrintSideResult("WhichPublisherPublishedTheAuthorsBook"))
-                .Add("The author's books who older than 30 years." , () => MenuFunctions.PrintSideResult("OlderThan30AuthorAndTheirBooks"))
+                .Add("Books by author (Enter author name ie.: Kovács Máté)", () => MenuFunctions.PrintSideResult("GetBooksByAuthor")) // itt az újítás
+                .Add("Books by publisher between time interval (Enter 2 year (ie.: 1999 2003))", () => MenuFunctions.PrintSideResult("GetBookByPublisher"))
+                // .Add("Book counter by author", () => MenuFunctions.PrintSideResult("BookCountByAuthors"))
+                .Add("The author's book published by these publisher: (Enter a book title: ie.: Holnapután)", () => MenuFunctions.PrintSideResult("WhichPublisherPublishedTheAuthorsBook"))
+                .Add("The author's books who older than 100 years.", () => MenuFunctions.PrintSideResult("OlderThan100AuthorAndTheirBooks"))
                 .Add("Back", ConsoleMenu.Close)
                 .Configure(config =>
                 {

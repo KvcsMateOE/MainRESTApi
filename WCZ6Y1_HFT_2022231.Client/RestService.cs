@@ -97,10 +97,10 @@ namespace WCZ6Y1_HFT_2022231.Client
             response.EnsureSuccessStatusCode();
         }
 
-        public void Put<T>(T item, string endpoint)
+        public void Put<T>(int id,T item, string endpoint)
         {
             HttpResponseMessage response =
-                client.PutAsJsonAsync(endpoint, item).GetAwaiter().GetResult();
+                client.PutAsJsonAsync(endpoint + "/" + id.ToString(), item).GetAwaiter().GetResult();
 
             response.EnsureSuccessStatusCode();
         }

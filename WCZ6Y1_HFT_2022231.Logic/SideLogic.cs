@@ -35,76 +35,8 @@ namespace WCZ6Y1_HFT_2022231.Logic
         {
         }
 
-        public IEnumerable<string> GetAllAuthorsByCountry(string country)
-        {
-            var result = from source in ReadAllAuthor()
-                         where source.HomeCountry.Equals(country)
-                         select new
-                         {
-                             Name = source.Name,
-                             Country = source.HomeCountry
-                         }.ToString();
-
-            return result;
-        }
-
-        public IEnumerable<int> GetAllOldBooks(int yearOfBoomers)
-        {
-
-            var result = from source in ReadAllBook()
-                         where source.ReleaseYear <= yearOfBoomers
-                         select source.BookId;
-
-            return result;
-            ;
-        }
        
-
-
-
-        public IEnumerable<string> GetLastCheapestPublisher()
-        {
-            var result = ReadAllPublisher();
-            int min = 4000;
-            List<string> list = new List<string>();
-            foreach (var pub in result)
-            {
-                if (pub.PublishingPrice < min)
-                {
-                    min = pub.PublishingPrice;
-                    list.Add(pub.PublisherName);
-                }
-            }
-            return list;
-        }
-
-        public IEnumerable<string> ListPublisherByPrintingCapacity()
-        {
-            var result = from c in ReadAllPublisher()
-                         where c.PrintingCapacity > 80
-                         select new
-                         {
-                             Name = c.PublisherName,
-                             Capacity = c.PrintingCapacity
-                         }.ToString();
-            return result;
-        }
-
-        public IEnumerable<ComparedBooks> HackIMDB(int yearOfBoomers)
-        {
-            var source = GetAllOldBooks(yearOfBoomers);
-            List<ComparedBooks> list = new List<ComparedBooks>();
-            foreach (var thisbookId in source)
-            {
-                Book _old = ReadBook(thisbookId);
-               
-                double magic = (double)_old.Rating + 1;
-                list.Add(new ComparedBooks(_old.Title, _old.Rating, magic, _old.ReleaseYear));
-            }
-
-            return list;
-        }
-        public IEnumerable<string> GetAllActionBooksWithMoreRatingThan2()
+        public IEnumerable<string> GetAllActionBooksWithMoreRatingThan2() //megtart
         {
             var res = from mvs in ReadAllBook()
                       where mvs.Rating > 2
@@ -126,95 +58,87 @@ namespace WCZ6Y1_HFT_2022231.Logic
 
 
         }
-        //public IEnumerable<string> GetBooksByAuthor(string name)
-        //{
-        //    var res = from mvs in ctx.Books
-        //              join g in ctx.Authors on mvs.Authorid equals g.AuthorId
-        //              //where mvs.Authorid == g.AuthorId
-        //              where g.Name == name
-        //              select new
-        //              {
-        //                  Name = g.Name,
-        //                  AuthorId = g.AuthorId,
-        //                  BookId = mvs.BookId,
-        //                  BookName = mvs.Title
-        //              }.ToString();
-        //    return res;
-        //    ;
-        //}
+       
         PublisherDbContext ctx = new PublisherDbContext();
         //  public IEnumerable<string> BooksBetween
-        public IEnumerable<string> GetBooksByAuthor(string name)
+        public IEnumerable<string> GetAllAuthorsByCountry(string country) //Megtartani
         {
-            var res = from mvs in ctx.Books
-                      where mvs.Author.Name==name
+            var result = from source in ReadAllAuthor()
+                         where source.HomeCountry.Equals(country)
+                         select new
+                         {
+                             Name = source.Name,
+                             Country = source.HomeCountry
+                         }.ToString();
+
+            return result;
+        }
+        public IEnumerable<string> GetBookByPublisher(int startDate, int finalDate) //megtart
+        {
+            var res = from mvs in ReadAllBook()
+                      from y in ReadAllPublisher()
+                      where mvs.ReleaseYear >= startDate && mvs.ReleaseYear <= finalDate && mvs.BookId == y.PublisherId
                       select new
                       {
-                          AuthorName = mvs.Author.Name,
-                          Title = mvs.Title
+                          BookName = mvs.Title,
+                          ReleaseYear = mvs.ReleaseYear,
+                          PublisherName = y.PublisherName
                       }.ToString();
-                      
+            return res;
+        }
+        public IEnumerable<string> GetBooksByAuthor(string name) //megtart 
+        {
+            var res = from mvs in ReadAllAuthor()
+                      from y in ReadAllBook()
+                      where mvs.Name == name && mvs.AuthorId == y.BookId
+                      select new
+                      {
+                          AuthorName = mvs.Name,
+                          Title = y.Title
+                      }.ToString();
+
             return res;
             ;
         }
-        public IEnumerable<string> GetBookByPublisher(int startDate, int finalDate)
-        {
-            var res = from mvs in ctx.Books
-                      where mvs.ReleaseYear >= startDate && mvs.ReleaseYear <= finalDate
-                      select new
-                      {
-                          BookName= mvs.Title,
-                          ReleaseYear=mvs.ReleaseYear,
-                          PublisherName=mvs.Publisher.PublisherName
-                      }.ToString();
-            return res;
-        }
-        public IEnumerable<string> BookCountByAuthors()
-        {
-            var res = from mvs in ctx.Books
-                      group mvs by mvs.Author.Name into g
-                      orderby g.Count() descending
-                      select new
-                      {
-                          AuthorName = g.Key,
-                          BookCount = g.Count(),
-                          
 
-                      }.ToString();
-
-            return res;
-        }
-        public IEnumerable<string>WhichPublisherPublishedTheAuthorsBook(string name)
+        public IEnumerable<string> WhichPublisherPublishedTheAuthorsBook(string name) //megtart
         {
-            var res = from mvs in ctx.Books
-                      where mvs.Author.Name == name
+            var res = from mvs in ReadAllBook()
+                      from y in ReadAllAuthor()
+                      from x in ReadAllPublisher()
+                      where mvs.Title == name && y.AuthorId == x.PublisherId && mvs.BookId == x.PublisherId
                       select new
                       {
-                          AuthorName = mvs.Author.Name,
+                          AuthorName = y.Name,
                           BookTitle = mvs.Title,
-                          PublisherName = mvs.Publisher.PublisherName
+                          PublisherName = x.PublisherName
                       }.ToString();
 
-                return res;
+            return res;
         }
-        public IEnumerable<string> OlderThan30AuthorAndTheirBooks()
+        public IEnumerable<string> OlderThan100AuthorAndTheirBooks() //megtart
         {
-          
-          
-           
+
+
+
             int t = DateTime.Now.Year;
-            var res = from mvs in ctx.Books
-                      where (t - mvs.Author.BirthYear) > 30 && mvs.Rating > 2.5 && mvs.Publisher.PublishingPrice > 200
-                      orderby mvs.Author.AuthorId descending
+            var res = from mvs in ReadAllBook()
+                      from y in ReadAllAuthor()
+                      from x in ReadAllPublisher()
+                      where (t - y.BirthYear) > 100
+                      where (y.AuthorId == x.PublisherId)
+                      where (mvs.BookId == x.PublisherId)
+
                       select new
                       {
-                          AuthorName = mvs.Author.Name,
-                          AuthorID = mvs.Author.AuthorId,
+                          AuthorName = y.Name,
+                          Birthyear = y.BirthYear,
                           BookTitle = mvs.Title,
-                          BookRating = mvs.Rating,
-                          PublisherName = mvs.Publisher.PublisherName
+                          // BookRating = mvs.Rating,
+                          PublisherName = x.PublisherName
 
                       }.ToString();
+
             return res;
         }
 

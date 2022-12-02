@@ -53,13 +53,13 @@ namespace WCZ6Y1_HFT_2022231.Client.Menu.Function
                 id = int.Parse(Console.ReadLine());
             }
 
-            Console.WriteLine("Enter the name of the new author:");
+            Console.WriteLine("Enter the name of the new author: (ie.: Ákos)");
             string name = Console.ReadLine();
             Console.WriteLine("Enter the birth of year of the new author (ie.: 1973):");
             int birthYear = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the home country of the new author:");
+            Console.WriteLine("Enter the home country of the new author: (ie.: Russia)");
             string homeCountry = Console.ReadLine();
-            Console.WriteLine("Enter the gender of the new author:");
+            Console.WriteLine("Enter the gender of the new author: (ie.: 0)");
             int gender = int.Parse(Console.ReadLine());
 
             Author newAuthor = new()
@@ -76,7 +76,7 @@ namespace WCZ6Y1_HFT_2022231.Client.Menu.Function
             }
             else
             {
-                Program.REST_API.Put(newAuthor, "author");
+                Program.REST_API.Put(id, newAuthor, "author");
             }
         }
 
@@ -113,16 +113,16 @@ namespace WCZ6Y1_HFT_2022231.Client.Menu.Function
                 id = int.Parse(Console.ReadLine());
             }
 
-            Console.WriteLine("Enter the title of the new book:");
+            Console.WriteLine("Enter the title of the new book: (ie.: Egri csillagok)");
             string title = Console.ReadLine();
             Console.WriteLine("Enter the release year of the new book (ie.: 1973):");
             int releaseYear = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the genre of the new book:");
+            Console.WriteLine("Enter the genre of the new book: (ie.: History)");
             string genre = Console.ReadLine();
-            Console.WriteLine("Enter the translator of the new book:");
+            Console.WriteLine("Enter the translator of the new book: (ie.: Józsi)");
             string translator = Console.ReadLine();
-            Console.WriteLine("Enter the rating of the new book:");
-            double rating = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the rating of the new book:");
+            //double rating = double.Parse(Console.ReadLine());
 
             Book newBook = new()
             {
@@ -130,7 +130,7 @@ namespace WCZ6Y1_HFT_2022231.Client.Menu.Function
                 ReleaseYear = releaseYear,
                 Genre = genre,
                 Translator = translator,
-                Rating = rating
+               // Rating = rating
             };
 
             if (Create)
@@ -139,7 +139,7 @@ namespace WCZ6Y1_HFT_2022231.Client.Menu.Function
             }
             else
             {
-                Program.REST_API.Put(newBook, "book");
+                Program.REST_API.Put(id, newBook, "book");
             }
         }
 
@@ -178,12 +178,13 @@ namespace WCZ6Y1_HFT_2022231.Client.Menu.Function
 
             Console.WriteLine("Enter the name of the new publisher:");
             string name = Console.ReadLine();
-            Console.WriteLine("Enter the address of the new publisher:");
+            Console.WriteLine("Enter the address of the new publisher: (ie.: Váci utca 8.)");
             string address = Console.ReadLine();
+            Console.WriteLine("Enter the number of contacts: (ie.:100)");
             int numberOfContacts = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the show room capacity of the new cinema:");
+            Console.WriteLine("Enter the printing capacity of the publisher: (ie.:100):");
             int printingCapacity = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the ticket price of the new cinema:");
+            Console.WriteLine("Enter the publishing price of the publisher: (ie.:100)");
             int publishingPrice = int.Parse(Console.ReadLine());
 
 
@@ -203,7 +204,7 @@ namespace WCZ6Y1_HFT_2022231.Client.Menu.Function
             }
             else
             {
-                Program.REST_API.Put(newPublisher, "publisher");
+                Program.REST_API.Put(id, newPublisher, "publisher");
             }
         }
     }

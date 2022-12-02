@@ -19,11 +19,7 @@ namespace WCZ6Y1_HFT_2022231.Endpoint.Controllers
             this.sl = ql;
         }
 
-        [HttpGet]
-        public IEnumerable<string> ListPublisherByPrintingCapacity()
-        {
-            return sl.ListPublisherByPrintingCapacity();
-        }
+     
 
         [HttpGet("{country}")]
         public IEnumerable<string> GetAllAuthorsByCountry(string country)
@@ -31,23 +27,10 @@ namespace WCZ6Y1_HFT_2022231.Endpoint.Controllers
             return sl.GetAllAuthorsByCountry(country);
         }
 
-        [HttpGet("{yearOfBoomers}")]
-        public IEnumerable<int> GetAllOldBooks(int yearOfBoomers)
-        {
-            return sl.GetAllOldBooks(yearOfBoomers);
-        }
+      
 
-        [HttpGet("{yearOfBoomers}")]
-        public IEnumerable<ComparedBooks> HackIMDB(int yearOfBoomers)
-        {
-            return sl.HackIMDB(yearOfBoomers);
-        }
-
-        [HttpGet]
-        public IEnumerable<string> GetLastCheapestPublisher()
-        {
-            return sl.GetLastCheapestPublisher();
-        }
+      
+       
 
         [HttpGet]
         public IEnumerable<string> GetAllActionBooksWithMoreRatingThan2()
@@ -64,19 +47,15 @@ namespace WCZ6Y1_HFT_2022231.Endpoint.Controllers
         {
             return sl.GetBookByPublisher(startDate, finalDate);
         }
-        [HttpGet]
-        public IEnumerable<string> BookCountByAuthors()
-        {
-            return sl.BookCountByAuthors();
-        }
+     
         [HttpGet("{name}")]
         public IEnumerable<string> WhichPublisherPublishedTheAuthorsBook(string name)
         {
             return sl.WhichPublisherPublishedTheAuthorsBook(name);
         }
-        public IEnumerable<string> OlderThan30AuthorAndTheirBooks()
+        public IEnumerable<string> OlderThan100AuthorAndTheirBooks()
         {
-            return sl.OlderThan30AuthorAndTheirBooks();
+            return sl.OlderThan100AuthorAndTheirBooks();
         }
 
     }

@@ -10,8 +10,8 @@ namespace WCZ6Y1_HFT_2022231.Models
       
             public Author()
             {
-                Books2 = new HashSet<Book>();
-                Name = string.Empty;
+                //Books2 = new HashSet<Book>();
+                //Name = string.Empty;
             }
 
             [Key]
@@ -30,10 +30,10 @@ namespace WCZ6Y1_HFT_2022231.Models
             [Required]
             [Range(0, 1)]
             public int Gender { get; set; }
-        [NotMapped]
-        public virtual ICollection<Book> Books2 { get; }
+        public virtual Publisher AuthorPublisher { get; set; }
+        public virtual int AuthorPublisherID { get; set; }
 
-            public override string ToString()
+        public override string ToString()
             {
                 return $"AuthorId: {AuthorId}\nName: {Name}\nBirth year: {BirthYear}\nHome country: {HomeCountry}\nGender: {Gender}\n";
             }
