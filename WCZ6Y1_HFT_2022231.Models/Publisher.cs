@@ -26,11 +26,11 @@ namespace WCZ6Y1_HFT_2022231.Models
 
         public string Address { get; set; }
         [Required]
-        [Range(1, 100)]
+       
         public int NumberOfContacts { get; set; }
 
         [Required]
-        [Range(15, 120)]
+       
         public int PrintingCapacity { get; set; }
 
         [Required]
