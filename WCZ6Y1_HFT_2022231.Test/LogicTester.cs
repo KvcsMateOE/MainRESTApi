@@ -131,8 +131,34 @@ namespace WCZ6Y1_HFT_2022231.Test
         [Test]
         public void GetAllAuthorsByCountryTest()
         {
-            string s = isl.GetAllAuthorsByCountry("Hungary").First();
-            Assert.That(s, Is.EqualTo("{ Name = Nagy Elemér, Country = Hungary }"));
+            var actual = isl.GetAllAuthorsByCountry2("Hungary").ToList();
+            var expected = new List<AuthorsBook>()
+            {
+                new AuthorsBook()
+                {
+                    Name="Nagy Elemér",
+                    Country="Hungary",
+                },
+                  new AuthorsBook()
+                {
+                    Name="Kiss Elemér",
+                    Country="Hungary",
+                },
+                    new AuthorsBook()
+                {
+                    Name="Lapos Elemér",
+                    Country="Hungary",
+                },
+                      new AuthorsBook()
+                {
+                    Name="Kovács Máté",
+                    Country="Hungary",
+                }
+
+
+
+            };
+            Assert.AreEqual(expected, actual);
         }
 
       
@@ -143,14 +169,51 @@ namespace WCZ6Y1_HFT_2022231.Test
         [Test]
         public void GetBooksByAuthorTest()
         {
-            string s = isl.GetBooksByAuthor("Kovács Máté").First();
-            Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, Title = Holnapután }"));
+            var actual = isl.GetBooksByAuthor2("Kovács Máté").ToList();
+            var expected = new List<BooksByAuthor>()
+            {
+                new BooksByAuthor()
+                {
+                    AuthorName="Kovács Máté",
+                    Title="Holnapután"
+                }
+            };
+            //string s = isl.GetBooksByAuthor("Kovács Máté").First();
+            // Assert.That(s, Is.EqualTo("{ AuthorName = Kovács Máté, Title = Holnapután }"));
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public void GetBookByPublisherTest()
         {
-            string s = isl.GetBookByPublisher(1999,2003).First();
-            Assert.That(s,Is.EqualTo("{ BookName = Koromfeketécske, ReleaseYear = 2000, PublisherName = Aréna Book }"));
+            var actual = isl.GetBookByPublisher2(1999, 2003).ToList();
+            var expected = new List<BookByPublisher>()
+            {
+                new BookByPublisher()
+                {
+                    BookName="Koromfeketécske",
+                    ReleaseYear=2000,
+                    PublisherName="Aréna Book"
+
+
+                },
+                 new BookByPublisher()
+                {
+                    BookName="Hári Pooter",
+                    ReleaseYear=2002,
+                    PublisherName="Libri"
+
+
+                },
+                  new BookByPublisher()
+                {
+                    BookName="Lecsó",
+                    ReleaseYear=2001,
+                    PublisherName="Bába kiadó"
+
+
+                },
+            };
+            Assert.AreEqual(expected, actual);
         }
       
         [Test]
@@ -165,10 +228,34 @@ namespace WCZ6Y1_HFT_2022231.Test
             Assert.That(() => isl.WhichPublisherPublishedTheAuthorsBook("Kovács Máté"), Throws.Nothing);
         }
         [Test]
-        public void OlderThan100AuthorAndTheirBooks()
+        public void OlderThan100AuthorAndTheirBooksTest()
         {
-            string s = isl.OlderThan100AuthorAndTheirBooks().First();
-            Assert.That(s, Is.EqualTo("{ AuthorName = Christian Meriksen, Birthyear = 1880, BookTitle = Trónok békéje, PublisherName = Líra }"));
+            var actual = isl.OlderThan100AuthorAndTheirBooks2().ToList();
+            var expected = new List<OlderThan30>()
+            {
+                new OlderThan30()
+                {
+                    AuthorName="Christian Meriksen",
+                    Birthyear=1880,
+                    BookTitle="Trónok békéje",
+                    PublisherName="Líra"
+                },
+                 new OlderThan30()
+                {
+                    AuthorName="Kiss Elemér",
+                    Birthyear=1455,
+                    BookTitle="Bosszútállók",
+                    PublisherName="Bookline"
+                },
+                  new OlderThan30()
+                {
+                    AuthorName="Lapos Elemér",
+                    Birthyear=1912,
+                    BookTitle="Legyek ura",
+                    PublisherName="Alexandria kiadó"
+                }
+            };
+            Assert.AreEqual(expected, actual);
         }
     }
 }
