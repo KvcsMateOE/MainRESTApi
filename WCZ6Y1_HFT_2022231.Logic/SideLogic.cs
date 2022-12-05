@@ -89,7 +89,7 @@ namespace WCZ6Y1_HFT_2022231.Logic
         {
             var res = from mvs in ReadAllBook()
                       from y in ReadAllPublisher()
-                      where mvs.ReleaseYear >= startDate && mvs.ReleaseYear <= finalDate && mvs.BookId == y.PublisherId
+                      where mvs.ReleaseYear >= startDate && mvs.ReleaseYear <= finalDate && mvs.BookPublisherId == y.PublisherId
                       select new
                       {
                           BookName = mvs.Title,
@@ -102,7 +102,7 @@ namespace WCZ6Y1_HFT_2022231.Logic
         {
             var res = from mvs in ReadAllBook()
                       from y in ReadAllPublisher()
-                      where mvs.ReleaseYear >= startDate && mvs.ReleaseYear <= finalDate && mvs.BookId == y.PublisherId
+                      where mvs.ReleaseYear >= startDate && mvs.ReleaseYear <= finalDate && mvs.BookPublisherId == y.PublisherId
                       select new BookByPublisher()
                       {
                           BookName = mvs.Title,
@@ -116,7 +116,7 @@ namespace WCZ6Y1_HFT_2022231.Logic
         {
             var res = from mvs in ReadAllAuthor()
                       from y in ReadAllBook()
-                      where mvs.Name == name && mvs.AuthorId == y.BookId
+                      where mvs.Name == name && mvs.AuthorPublisherID == y.BookPublisherId
                       select new
                       {
                           AuthorName = mvs.Name,
@@ -130,7 +130,7 @@ namespace WCZ6Y1_HFT_2022231.Logic
         {
             var res = from mvs in ReadAllAuthor()
                       from y in ReadAllBook()
-                      where mvs.Name == name && mvs.AuthorId == y.BookId
+                      where mvs.Name == name && mvs.AuthorPublisherID == y.BookPublisherId
                       select new BooksByAuthor()
                       {
                           AuthorName = mvs.Name,
@@ -146,7 +146,7 @@ namespace WCZ6Y1_HFT_2022231.Logic
             var res = from mvs in ReadAllBook()
                       from y in ReadAllAuthor()
                       from x in ReadAllPublisher()
-                      where mvs.Title == name && y.AuthorId == x.PublisherId && mvs.BookId == x.PublisherId
+                      where mvs.Title == name && y.AuthorPublisherID == x.PublisherId && mvs.BookPublisherId == x.PublisherId
                       select new
                       {
                           AuthorName = y.Name,
@@ -166,8 +166,8 @@ namespace WCZ6Y1_HFT_2022231.Logic
                       from y in ReadAllAuthor()
                       from x in ReadAllPublisher()
                       where (t - y.BirthYear) > 100
-                      where (y.AuthorId == x.PublisherId)
-                      where (mvs.BookId == x.PublisherId)
+                      where (y.AuthorPublisherID == x.PublisherId)
+                      where (mvs.BookPublisherId == x.PublisherId)
 
                       select new
                       {
@@ -191,8 +191,8 @@ namespace WCZ6Y1_HFT_2022231.Logic
                       from y in ReadAllAuthor()
                       from x in ReadAllPublisher()
                       where (t - y.BirthYear) > 100
-                      where (y.AuthorId == x.PublisherId)
-                      where (mvs.BookId == x.PublisherId)
+                      where (y.AuthorPublisherID == x.PublisherId)
+                      where (mvs.BookPublisherId == x.PublisherId)
 
                       select new OlderThan30()
                       {

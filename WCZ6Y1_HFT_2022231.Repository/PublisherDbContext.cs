@@ -66,27 +66,27 @@ namespace WCZ6Y1_HFT_2022231.Repository
                    .HasForeignKey(k => k.AuthorPublisherID);
 
 
-                Author a1 = new Author() { AuthorId = 1, BirthYear = 1986, Gender = 0, HomeCountry = "Hungary", Name = "Nagy Elemér" };
-                Author a2 = new Author() { AuthorId = 2, BirthYear = 1940, Gender = 1, HomeCountry = "Germany", Name = "Hans Landa" };
-                Author a3 = new Author() { AuthorId = 3, BirthYear = 1944, Gender = 1, HomeCountry = "Argentina", Name = "Joaquin Messi" };
-                Author a4 = new Author() { AuthorId = 4, BirthYear = 1990, Gender = 0, HomeCountry = "France", Name = "Zinedine Zadan" };
-                Author a5 = new Author() { AuthorId = 5, BirthYear = 1880, Gender = 0, HomeCountry = "Denmark", Name = "Christian Meriksen" };
-                Author a6 = new Author() { AuthorId = 6, BirthYear = 1455, Gender = 0, HomeCountry = "Hungary", Name = "Kiss Elemér" };
-                Author a7 = new Author() { AuthorId = 7, BirthYear = 1912, Gender = 1, HomeCountry = "Hungary", Name = "Lapos Elemér" };
-                Author a8 = new Author() { AuthorId = 8, BirthYear = 1945, Gender = 0, HomeCountry = "Scotland", Name = "Scott McTominuy" };
-                Author a9 = new Author() { AuthorId = 9, BirthYear = 1968, Gender = 1, HomeCountry = "China", Name = "Xiam-ping" };
-                Author a10 = new Author() { AuthorId = 10, BirthYear = 2000, Gender = 0, HomeCountry = "Hungary", Name = "Kovács Máté" };
+                Author a1 = new Author() { AuthorId = 1, BirthYear = 1986, Gender = 0, HomeCountry = "Hungary", Name = "Nagy Elemér", AuthorPublisherID = 1 };
+                Author a2 = new Author() { AuthorId = 2, BirthYear = 1940, Gender = 1, HomeCountry = "Germany", Name = "Hans Landa", AuthorPublisherID = 2 };
+                Author a3 = new Author() { AuthorId = 3, BirthYear = 1944, Gender = 1, HomeCountry = "Argentina", Name = "Joaquin Messi", AuthorPublisherID = 3 };
+                Author a4 = new Author() { AuthorId = 4, BirthYear = 1990, Gender = 0, HomeCountry = "France", Name = "Zinedine Zadan", AuthorPublisherID = 4 };
+                Author a5 = new Author() { AuthorId = 5, BirthYear = 1880, Gender = 0, HomeCountry = "Denmark", Name = "Christian Meriksen", AuthorPublisherID = 5 };
+                Author a6 = new Author() { AuthorId = 6, BirthYear = 1455, Gender = 0, HomeCountry = "Hungary", Name = "Kiss Elemér", AuthorPublisherID = 6 };
+                Author a7 = new Author() { AuthorId = 7, BirthYear = 1912, Gender = 1, HomeCountry = "Hungary", Name = "Lapos Elemér", AuthorPublisherID = 7 };
+                Author a8 = new Author() { AuthorId = 8, BirthYear = 1945, Gender = 0, HomeCountry = "Scotland", Name = "Scott McTominuy", AuthorPublisherID = 8 };
+                Author a9 = new Author() { AuthorId = 9, BirthYear = 1968, Gender = 1, HomeCountry = "China", Name = "Xiam-ping", AuthorPublisherID = 9 };
+                Author a10 = new Author() { AuthorId = 10, BirthYear = 2000, Gender = 0, HomeCountry = "Hungary", Name = "Kovács Máté", AuthorPublisherID = 10 };
 
-                Book b1 = new Book() { BookId = 1, Translator = "Károli Gáspár", Genre = "Action", Title = "Transformers", Rating = 4.5, ReleaseYear = 2007 };
-                Book b2 = new Book() { BookId = 2, Translator = "Nemes-Kiss Ágnes", Genre = "Fantasy", Title = "Koromfeketécske", Rating = 4.5, ReleaseYear = 2000 };
-                Book b3 = new Book() { BookId = 3, Translator = "Weöres Nándor", Genre = "Horror", Title = "Hári Pooter", Rating = 3.7, ReleaseYear = 2002 };
-                Book b4 = new Book() { BookId = 4, Translator = "None", Genre = "Action", Title = "Tüskevár", Rating = 5.0, ReleaseYear = 1960 };
-                Book b5 = new Book() { BookId = 5, Translator = "Kosztolányi Rezső", Genre = "Action", Title = "Trónok békéje", Rating = 4.55 };
-                Book b6 = new Book() { BookId = 6, Translator = "Hadházi László", Genre = "Thriller", Title = "Bosszútállók", Rating = 4.5, ReleaseYear = 2011 };
-                Book b7 = new Book() { BookId = 7, Translator = "Kőhalmi Zoltán", Genre = "Action", Title = "Legyek ura", Rating = 2.5, ReleaseYear = 2020 };
-                Book b8 = new Book() { BookId = 8, Translator = "None", Genre = "Fantasy", Title = "Lecsó", Rating = 1.5, ReleaseYear = 2001 };
-                Book b9 = new Book() { BookId = 9, Translator = "Kiss Ádám", Genre = "Horror", Title = "Az", Rating = 0.5, ReleaseYear = 1943 };
-                Book b10 = new Book() { BookId = 10, Translator = "Ráskó Eszter", Genre = "Drama", Title = "Holnapután", Rating = 3.5, ReleaseYear = 1956 };
+                Book b1 = new Book() { BookId = 1, Translator = "Károli Gáspár", Genre = "Action", Title = "Transformers", Rating = 4.5, ReleaseYear = 2007, BookPublisherId = 1 };
+                Book b2 = new Book() { BookId = 2, Translator = "Nemes-Kiss Ágnes", Genre = "Fantasy", Title = "Koromfeketécske", Rating = 4.5, ReleaseYear = 2000, BookPublisherId = 2 };
+                Book b3 = new Book() { BookId = 3, Translator = "Weöres Nándor", Genre = "Horror", Title = "Hári Pooter", Rating = 3.7, ReleaseYear = 2002, BookPublisherId = 3 };
+                Book b4 = new Book() { BookId = 4, Translator = "None", Genre = "Action", Title = "Tüskevár", Rating = 5.0, ReleaseYear = 1960, BookPublisherId = 4 };
+                Book b5 = new Book() { BookId = 5, Translator = "Kosztolányi Rezső", Genre = "Action", Title = "Trónok békéje", Rating = 4.55, ReleaseYear = 2010, BookPublisherId = 5 };
+                Book b6 = new Book() { BookId = 6, Translator = "Hadházi László", Genre = "Thriller", Title = "Bosszútállók", Rating = 4.5, ReleaseYear = 2010, BookPublisherId = 6 };
+                Book b7 = new Book() { BookId = 7, Translator = "Kőhalmi Zoltán", Genre = "Action", Title = "Legyek ura", Rating = 2.5, ReleaseYear = 2020, BookPublisherId = 7 };
+                Book b8 = new Book() { BookId = 8, Translator = "None", Genre = "Fantasy", Title = "Lecsó", Rating = 1.5, ReleaseYear = 2001, BookPublisherId = 8 };
+                Book b9 = new Book() { BookId = 9, Translator = "Kiss Ádám", Genre = "Horror", Title = "Az", Rating = 0.5, ReleaseYear = 1943, BookPublisherId = 9 };
+                Book b10 = new Book() { BookId = 10, Translator = "Ráskó Eszter", Genre = "Drama", Title = "Holnapután", Rating = 3.5, ReleaseYear = 1956, BookPublisherId = 10 };
 
                 Publisher p1 = new Publisher() { PublisherId = 1, Address = "1062 Budapest Váci út 1", PublisherName = "WestEnd Book", NumberOfContacts = 1000, PrintingCapacity = 100, PublishingPrice = 3000 };
                 Publisher p2 = new Publisher() { PublisherId = 2, Address = "1062 Budapest Váci út 2", PublisherName = "Aréna Book", NumberOfContacts = 2000, PrintingCapacity = 200, PublishingPrice = 3500 };

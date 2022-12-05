@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using WCZ6Y1_HFT_2022231.Logic;
 using WCZ6Y1_HFT_2022231.Models;
@@ -19,7 +20,7 @@ namespace WCZ6Y1_HFT_2022231.Endpoint
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
             services.AddScoped<IMainLogic, MainLogic>();
             services.AddScoped<ISideLogic, SideLogic>();
