@@ -21,7 +21,7 @@ namespace WCZ6Y1_HFT_2022231.Models
         public int PublisherId { get; set; }
 
         [Required]
-        [MaxLength(32)]
+        
         public string PublisherName { get; set; }
 
         public string Address { get; set; }
